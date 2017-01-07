@@ -1,0 +1,69 @@
+
+# Import math and plot functions
+# -----------------------------------------------------------
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+# Global plot parameters
+# -----------------------------------------------------------
+plt.rcParams['font.size'] = 24
+plt.rcParams['axes.linewidth'] = 1.5 
+plt.rcParams['lines.linewidth'] = 3
+plt.rcParams['lines.markersize'] = 20
+plt.rcParams['xtick.major.size'] = 5
+plt.rcParams['ytick.major.size'] = 5
+plt.rcParams['legend.fancybox'] = False
+plt.rcParams['legend.shadow'] = False
+plt.rcParams['legend.fontsize'] = 20
+
+# Load data from a file
+# -----------------------------------------------------------
+Theta = np.loadtxt("Theta.txt")
+J = np.loadtxt("J.txt")
+
+R = 8.31
+T = 298.0
+pi = np.pi
+F = 96485.0
+D_A = 8.1e-9
+c_A = 1e-3
+e =  1e-2
+sigma = 100.0
+I = J * (pi * e * F * D_A * c_A)
+E = (Theta * R * T )/ F
+v = (sigma*R*T*D_A)/(F * e**2.0)
+
+Ip = -0.446 * F * c_A* pi* e**2 * np.sqrt((F*D_A*v)/(R*T))
+Jp = -.446 * np.sqrt(sigma)
+
+# Generate lists
+# -----------------------------------------------------------
+	
+# Plot data
+# -----------------------------------------------------------
+plt.figure(figsize = (12,8))
+
+plt.plot(Theta, J, '-r', label = "Voltammetry")
+plt.plot([-20,20],[Jp,Jp])
+
+
+
+plt.xlabel('Theta')
+plt.ylabel('J')
+plt.legend(loc = 1)
+
+plt.savefig('figure.pdf')
+plt.show()
+
+
+
+#c_j = C_j * c_A
+#D_j = D_A * d_j
+#x = X * e
+#time = (Time * e^2)/ D_A
+
+
+
+
+
+

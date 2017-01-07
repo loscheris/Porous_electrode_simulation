@@ -1,0 +1,16 @@
+Stop_after_peak_current_reached(y/n)		n
+Stop_after_conc_profile_recorded(y/n)		n
+theta_i		 20
+theta_v		 -20
+step_potential	 0.08
+sigma 		 1e-4
+maxR  		 1.01
+height 		 1.0
+K  		 1e2
+deltaTheta  	 0.01
+h0  		 1e-5
+omega  		 1.05
+alpha  		 0.5
+db 		 1.0
+width 		 1.0
+record_conc_time 
